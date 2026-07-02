@@ -56,6 +56,7 @@ Autoreponder.vip is the world's first portable autoresponder system, ultra-light
      - `unsubscribe_secret` — the security root for unsubscribe links and signup form tokens. Set it once, **before launch, to a long random string**, and never change it afterward: changing it invalidates every unsubscribe link already sent to your subscribers. Example: `a3f0c1b2e7d49...` (64 hex characters, 32 random bytes).
      - `public_trigger_key` — only needed if you use an external web cron (Option B in the Cron Setup tab). Set it to a long random alphanumeric string, e.g. `trig_9f2a7c4b1e8d...`. Keep it stable once your remote cron service is configured with it.
      - `from_name` and `from_email`
+     - `base_url` — optional, but recommended when the script is installed in a subdirectory or automatic URL detection generates incorrect links. Example: `https://autoresponder.vip/autoresponder`
      - SMTP credentials (`smtp_username`, `smtp_password`) if `smtp_enabled` is `true`
    - Set `time_zone` if needed.
 
