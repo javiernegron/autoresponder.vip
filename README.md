@@ -116,6 +116,8 @@ If your provider enforces a daily cap such as Brevo's 300 emails/day plan, set `
 
 ## Recommended settings by hosting type
 
+[Recommended web hosting here](https://autoresponder.vip/blog/recommended-hosting/)
+
 ### Free or very limited hosting
 
 - `max_sends_per_run`: 20
