@@ -101,7 +101,7 @@ The following settings are important for performance and delivery reliability:
 
 To use your SMTP provider, configure the following values in `autoresponder/config.php`:
 
-[Recommended SMTP Here](https://autoresponder.vip/blog/recommended-smtp)
+[Recommended SMTP Services Here](https://autoresponder.vip/blog/recommended-smtp)
 
 - `smtp_enabled` => `true`
 - `smtp_host` => `smtp.example.com`
@@ -116,7 +116,7 @@ If your provider enforces a daily cap such as Brevo's 300 emails/day plan, set `
 
 ## Recommended settings by hosting type
 
-[Recommended web hosting here](https://autoresponder.vip/blog/recommended-hosting/)
+[Recommended Web Hosting Services Here](https://autoresponder.vip/blog/recommended-hosting/)
 
 ### Free or very limited hosting
 
