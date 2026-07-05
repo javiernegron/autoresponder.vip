@@ -41,9 +41,32 @@ Autoreponder.vip is the world's first portable autoresponder system, ultra-light
 
 ## Requirements
 
-- PHP 7.4+ (recommended PHP 8.x)
-- Writable folders for `data/`, `logs/`, and `backups/`
-- Optional (Recommended): SMTP Access.
+*   **Hosting with PHP support:** A web hosting environment with **PHP 7.4 or higher** is required (PHP 8.x is highly recommended for optimal performance). To ensure the script operates correctly and maintains high deliverability, your hosting must meet the following sub-requirements:
+    *   **Email and DNS Management for High Deliverability:** To maximize the chances of your emails reaching the inbox and avoiding the SPAM folder, your provider must allow you to manage authentication protocols.
+        *   **Create Corporate Email Accounts:** You should be able to create accounts under your own domain (e.g., `contact@yourdomain.com`). Sending from a professional domain generates greater trust and improved sender reputation compared to generic addresses.
+        *   **DNS Manager Access:** You must have permissions to configure **TXT records**. This is strictly necessary to implement **SPF, DKIM, and DMARC** authentication. These records are now mandatory requirements for major ISPs like Google and Yahoo to validate your identity and comply with modern security standards.
+    *   **Write Permissions:** The `data/`, `logs/`, and `backups/` folders must have write permissions so the script can manage subscriber lists, logs, and security records automatically.
+
+---
+
+### Recommended Hosting
+
+We have tested and reviewed several hosting services to ensure full compatibility with the "No DB" architecture and the automation system (Cron) of Autoresponder.vip.
+
+👉 [View the list of reviewed and recommended hostings here](https://autoresponder.vip/blog/recommended-hosting/).
+
+---
+
+### SMTP Access (Highly Recommended)
+
+While Autoresponder.vip can use the server's native PHP mail function, we **strongly recommend** using an external SMTP service. 
+
+**Why use an external SMTP?**
+1.  **Reliability:** Native hosting mail functions are often restricted, lack proper authentication, and are frequently flagged as SPAM by major providers.
+2.  **Deliverability:** Professional SMTP services use high-reputation IP addresses and encrypted transport (TLS/SSL), ensuring your messages land in the primary inbox.
+3.  **Bypass Hosting Limits:** Most shared hostings strictly limit the number of emails you can send per hour. An external SMTP allows you to scale your sending volume safely.
+
+👉 [Check our reviewed and recommended SMTP providers here](https://autoresponder.vip/blog/recommended-smtp).
 
 ## Installation
 
@@ -101,7 +124,7 @@ The following settings are important for performance and delivery reliability:
 
 To use your SMTP provider, configure the following values in `autoresponder/config.php`:
 
-[Recommended SMTP Services Here](https://autoresponder.vip/blog/recommended-smtp)
+👉 [Recommended SMTP Here](https://autoresponder.vip/blog/recommended-smtp)
 
 - `smtp_enabled` => `true`
 - `smtp_host` => `smtp.example.com`
@@ -116,28 +139,25 @@ If your provider enforces a daily cap such as Brevo's 300 emails/day plan, set `
 
 ## Recommended settings by hosting type
 
-[Recommended Web Hosting Services Here](https://autoresponder.vip/blog/recommended-hosting/)
+👉 [Recommended web hosting here](https://autoresponder.vip/blog/recommended-hosting/)
 
 ### Free or very limited hosting
-
-- `max_sends_per_run`: 20
-- `send_delay_seconds`: 2
+- `max_sends_per_run`: 10
+- `send_delay_seconds`: 5
 - `bounce_threshold`: 2
-- `rate_limit_max`: 3
+- `rate_limit_max`: 2
 - `rate_limit_window`: 3600
 
 ### Typical shared hosting
-
-- `max_sends_per_run`: 40
-- `send_delay_seconds`: 1
+- `max_sends_per_run`: 20
+- `send_delay_seconds`: 3
 - `bounce_threshold`: 3
 - `rate_limit_max`: 5
 - `rate_limit_window`: 3600
 
 ### VPS or dedicated server
-
-- `max_sends_per_run`: 100
-- `send_delay_seconds`: 0
+- `max_sends_per_run`: 50
+- `send_delay_seconds`: 2
 - `bounce_threshold`: 5
 - `rate_limit_max`: 10
 - `rate_limit_window`: 3600
